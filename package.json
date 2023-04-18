@@ -14,6 +14,8 @@
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
   },
   "dependencies": {
+    "@growthbook/growthbook": "^0.25.0",
+    "@material/web": "^1.0.0-pre.6",
     "firebase": "^9.19.1",
     "lit": "^2.0.2"
   },
