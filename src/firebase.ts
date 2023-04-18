@@ -19,6 +19,3 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
-
-// eslint-disable-next-line no-console
-console.log(`Automatic Data Collection Enabled: ${analytics.app.automaticDataCollectionEnabled}`);

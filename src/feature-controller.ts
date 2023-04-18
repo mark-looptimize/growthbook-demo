@@ -14,7 +14,7 @@ export class FeatureController implements ReactiveController {
 
   analyticsService = analytics;
 
-  sampleFeatureEnabled = false;
+  sampleFeatureEnabled? :boolean;
 
   growthBook = new GrowthBook<AppFeatures>({
     apiHost: "https://cdn.growthbook.io",
@@ -27,7 +27,6 @@ export class FeatureController implements ReactiveController {
     (this.host = host).addController(this);
   }
 
-  // NOTE: This is the callback for when the host Application is started
   async hostConnected() {
     console.log('Initializing Feature Controller');
     await this.growthBook.loadFeatures({ autoRefresh: true });
@@ -42,6 +41,7 @@ export class FeatureController implements ReactiveController {
       logEvent(this.analyticsService, "feature_flag_enabled", {
         feature_flag_id: "sample-feature"
       });
+      this.host.requestUpdate();
     }
   }
 

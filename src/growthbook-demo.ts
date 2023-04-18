@@ -67,7 +67,7 @@ export class GrowthbookDemo extends LitElement {
     let tabContent;
 
     if (this.currentTab === DemoTabs.CONTENT_TAB) {
-      tabContent = html`<content-tab .sample-feature-enabled=${this.featureController.sampleFeatureEnabled}></content-tab>`;
+      tabContent = html`<content-tab .sampleFeatureEnabled=${this.featureController.sampleFeatureEnabled}></content-tab>`;
     }
 
     if (this.currentTab === DemoTabs.ATTRIBUTES_TAB) {
