@@ -5,6 +5,10 @@ import { logEvent } from 'firebase/analytics';
 import { analytics } from './firebase.js';
 import { UserService } from './user-service.js';
 
+interface AppFeatures {
+  "sample-feature": boolean;
+}
+
 export class FeatureController implements ReactiveController {
   host: ReactiveControllerHost;
 
@@ -12,7 +16,7 @@ export class FeatureController implements ReactiveController {
 
   sampleFeatureEnabled = false;
 
-  growthBook = new GrowthBook({
+  growthBook = new GrowthBook<AppFeatures>({
     apiHost: "https://cdn.growthbook.io",
     clientKey: "sdk-UWplF34GF7k6wahK",
     enableDevMode: true,
