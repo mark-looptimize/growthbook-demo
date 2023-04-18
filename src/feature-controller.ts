@@ -14,7 +14,7 @@ export class FeatureController implements ReactiveController {
 
   analyticsService = analytics;
 
-  sampleFeatureEnabled? :boolean;
+  sampleFeatureEnabled = false;
 
   growthBook = new GrowthBook<AppFeatures>({
     apiHost: "https://cdn.growthbook.io",
