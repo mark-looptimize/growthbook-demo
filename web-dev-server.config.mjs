@@ -20,6 +20,17 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
   plugins: [
     /** Use Hot Module Replacement by uncommenting. Requires @open-wc/dev-server-hmr plugin */
     // hmr && hmrPlugin({ exclude: ['**/*/node_modules/**/*'], presets: [presets.litElement] }),
+    {
+      name: 'strip-node-env',
+      transform(context) {
+        if (context.response.body.includes('process.env.NODE_ENV')) {
+          const replacementText = JSON.stringify("development");
+          const filteredResponse = context.response.body.replaceAll('process.env.NODE_ENV', replacementText);
+          return filteredResponse;
+        }
+        return context;
+      }
+    }
   ],
 
   // See documentation for all available options
