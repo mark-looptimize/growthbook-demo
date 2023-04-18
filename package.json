@@ -14,6 +14,8 @@
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
   },
   "dependencies": {
+    "@growthbook/growthbook": "^0.25.0",
+    "@material/web": "^1.0.0-pre.6",
     "firebase": "^9.19.1",
     "lit": "^2.0.2"
   },
@@ -24,6 +26,7 @@
     "@open-wc/eslint-config": "^9.2.1",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
     "@web/dev-server": "^0.1.34",

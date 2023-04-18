@@ -1,5 +1,6 @@
 import nodeResolve from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
 import html from '@web/rollup-plugin-html';
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets';
 import esbuild from 'rollup-plugin-esbuild';
@@ -26,6 +27,10 @@ export default {
     }),
     /** Resolve bare module imports */
     nodeResolve(),
+    replace({
+      "process.env.NODE_ENV": JSON.stringify("production"),
+      preventAssignment: true,
+    }),
     /** Minify JS, compile JS to a lower language target */
     esbuild({
       minify: true,
